@@ -16,9 +16,9 @@ SyracuseTest >> testAllTermsFrom [
 { #category : #tests }
 SyracuseTest >> testAltitude [
 
-	self assert: (SyracuseSuite new altitudeFor: 8) equals: 4.
-	self assert: (SyracuseSuite new altitudeFor: 16) equals: 8.
-	self assert: (SyracuseSuite new altitudeFor: 15) equals: 160.
+	self assert: (SyracuseSuite new altitudeFrom: 8) equals: 4.
+	self assert: (SyracuseSuite new altitudeFrom: 16) equals: 8.
+	self assert: (SyracuseSuite new altitudeFrom: 15) equals: 160.
 	
 ]
 
@@ -28,6 +28,14 @@ SyracuseTest >> testFlight [
 	self assert: (SyracuseSuite new flightFor: 8) equals: #(4 2 1) size.
 	self assert: (SyracuseSuite new flightFor: 16) equals: 4.
 	self assert: (SyracuseSuite new flightFor: 15) equals: 17.
+	
+]
+
+{ #category : #tests }
+SyracuseTest >> testPicInAllFrom [
+
+	self assert: (SyracuseSuite new picInAllFrom: 16) equals: {15 .160}.
+	self assert: (SyracuseSuite new picInAllFrom: 5) equals: {3 . 16}.
 	
 ]
 

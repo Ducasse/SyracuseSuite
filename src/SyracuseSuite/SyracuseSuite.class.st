@@ -25,7 +25,7 @@ SyracuseSuite >> allTermsFrom: aNumber [
 ]
 
 { #category : #accessing }
-SyracuseSuite >> altitudeFor: aNumber [
+SyracuseSuite >> altitudeFrom: aNumber [
 
 	^ (self allTermsFrom: aNumber) max
 
@@ -37,6 +37,24 @@ SyracuseSuite >> flightFor: aNumber [
 
 	^ (self allTermsFrom: aNumber) size
 
+	
+]
+
+{ #category : #compute }
+SyracuseSuite >> picInAllFrom: anInteger [ 
+	
+	| currentAlt max indexOfMax |
+	max := 1.
+	indexOfMax := 0.
+	2 to: anInteger do: [ :i|
+		currentAlt := self altitudeFrom: i.
+		
+		max < currentAlt ifTrue: [
+			max := currentAlt.
+			indexOfMax := i.
+		 ]].
+	^ { indexOfMax . max }
+	
 	
 ]
 
